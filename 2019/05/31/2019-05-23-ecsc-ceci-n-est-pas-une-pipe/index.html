@@ -131,7 +131,7 @@ if (!doNotTrack) {
 <li>According to the HTTP response headers, the web server is <code>Apache 2.4.25 (Debian)</code>
 
 <ul>
-<li>From tihs <a href="https://packages.debian.org/search?keywords=apache2">we can infer</a> that Debian version is Stretch and Apache is at the latest stable version</li>
+<li>From this <a href="https://packages.debian.org/search?keywords=apache2">we can infer</a> that Debian version is Stretch and Apache is at the latest stable version</li>
 </ul></li>
 <li>I tried simplistic <abbr title="SQL injection">SQLi</abbr>, nothing</li>
 </ul>
@@ -277,7 +277,7 @@ $ jhead -ce file.php
 
 <h3 id="rce-attempt">RCE attempt</h3>
 
-<p>First thing I tried next was execute some system calls using PHP methods such as <code>exit()</code>, <code>system()</code> or <code>shell_exec()</code>:</p>
+<p>First thing I tried next was execute some system calls using PHP methods such as <code>exec()</code>, <code>system()</code> or <code>shell_exec()</code>:</p>
 
 <pre><code class="language-php">&lt;?php
     echo &quot;DOTAN3 - START&quot;;
@@ -326,8 +326,8 @@ Now is a good time to check <code>phpinfo()</code>;</p>
 
 <ul>
 <li>We know the application working directory is the classic <code>/var/www/html</code></li>
-<li>We could not use <code>file_get_contents</code> because read the values for <code>allow_url_fopen</code> are <code>OFF</code></li>
-<li>We could not use any system calls because the functions are in the <code>disable_functions</code></li>
+<li>We could not use <code>file_get_contents</code> because the values for <code>allow_url_fopen</code> are <code>OFF</code></li>
+<li>We could not use any system calls because the functions are in <code>disable_functions</code></li>
 <li>There&rsquo;s some <code>prepend.php</code> file loaded from <code>/usr/share/php/chall/prepend.php</code>
 
 <ul>
@@ -582,7 +582,7 @@ Oh boy, how wrong was I&hellip;</p>
 /home/flag &gt; /var/www/html/upload/4df6956c92a14c5014f891c9017d050bc6d7772b6eab4172726938a124c38e01/flag2
 </code></pre>
 
-<p><strong>Then launch CHankro to generate the output file</strong></p>
+<p><strong>Then launch Chankro to generate the output file</strong></p>
 
 <pre><code class="language-bash">$ python chankro.py --arch 64 --input shell.sh --output sample.php --path /var/www/html/upload/4df6956c92a14c5014f891c9017d050bc6d7772b6eab4172726938a124c38e01
 </code></pre>
@@ -626,6 +626,14 @@ mail('a','a','a','a');
 
 <p>Kudos to the organizers of this CTF that I found quite fun, not too hard so I could progress and learn many new things.</p>
 
+<hr />
+
+<h3 id="edits">Edits</h3>
+
+<ul>
+<li>2019-05-31 10:28:00 CEST - Fix some typos</li>
+</ul>
+
 </div>
 
         <footer class="post-footer clearfix">
@@ -646,7 +654,9 @@ mail('a','a','a','a');
             
                 <a href="/tags/ld_preload/">LD_PRELOAD</a>, 
             
-                <a href="/tags/putenv/">putenv</a>
+                <a href="/tags/putenv/">putenv</a>, 
+            
+                <a href="/tags/mail/">mail</a>
             
         </p>
     
