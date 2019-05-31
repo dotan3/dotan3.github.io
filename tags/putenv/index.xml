@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>putenv on dotan3&#39;s CTF adventures</title>
+    <link>https://dotan3.github.io/tags/putenv/</link>
+    <description>Recent content in putenv on dotan3&#39;s CTF adventures</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>dotan3</copyright>
+    <lastBuildDate>Fri, 31 May 2019 09:51:48 +0200</lastBuildDate>
+    
+	<atom:link href="https://dotan3.github.io/tags/putenv/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>ECSC - Ceci n&#39;est pas une pipe</title>
+      <link>https://dotan3.github.io/2019/05/31/2019-05-23-ecsc-ceci-n-est-pas-une-pipe/</link>
+      <pubDate>Fri, 31 May 2019 09:51:48 +0200</pubDate>
+      
+      <guid>https://dotan3.github.io/2019/05/31/2019-05-23-ecsc-ceci-n-est-pas-une-pipe/</guid>
+      <description>The challenge description:
+Ça se passe par ici : http://challenges.ecsc-teamfrance.fr:8001  Reconnaissance Ceci n&#39;est pas une pipe is the very first challenge I tried during ECSC 2019 qualifications. It&amp;rsquo;s a web challenge and it starts with a login page:
+First steps From this very first page, some information already:
+ It&amp;rsquo;s probably a PHP challenge because of the url: login.php The HTML source does not reveal anything interesting According to the HTTP response headers, the web server is Apache 2.</description>
+    </item>
+    
+  </channel>
+</rss>

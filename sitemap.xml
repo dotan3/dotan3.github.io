@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://dotan3.github.io/2019/05/31/2019-05-23-ecsc-ceci-n-est-pas-une-pipe/</loc>
+    <lastmod>2019-05-31T09:51:48+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dotan3.github.io/tags/ld_preload/</loc>
+    <lastmod>2019-05-31T09:51:48+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://dotan3.github.io/post/</loc>
+    <lastmod>2019-05-31T09:51:48+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://dotan3.github.io/tags/</loc>
+    <lastmod>2019-05-31T09:51:48+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://dotan3.github.io/tags/allow_url_fopen/</loc>
+    <lastmod>2019-05-31T09:51:48+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://dotan3.github.io/</loc>
+    <lastmod>2019-05-31T09:51:48+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://dotan3.github.io/tags/open_basedir/</loc>
+    <lastmod>2019-05-31T09:51:48+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://dotan3.github.io/tags/php/</loc>
+    <lastmod>2019-05-31T09:51:48+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://dotan3.github.io/tags/putenv/</loc>
+    <lastmod>2019-05-31T09:51:48+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://dotan3.github.io/tags/rce/</loc>
+    <lastmod>2019-05-31T09:51:48+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://dotan3.github.io/tags/web/</loc>
+    <lastmod>2019-05-31T09:51:48+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+</urlset>
